@@ -15,6 +15,7 @@ module.exports = env => {
   // dev
   const devtool = isProd ? false : 'source-map';
   const devServer = {
+    contentBase: path.join(__dirname, 'src'),
     port: 3000,
     historyApiFallback: true,
     host: '0.0.0.0',
@@ -27,8 +28,8 @@ module.exports = env => {
     }),
     new HtmlWebpackPlugin({
       title: 'Hubgets Test',
-      template: './index.html',
-      filename: './index.html',
+      template: './src/template.html',
+      filename: 'index.html',
     }),
   ];
 
@@ -75,18 +76,18 @@ module.exports = env => {
     ],
   };
 
+  const html = {
+    test: /\.html$/,
+    use: ['html-loader'],
+  };
+
   const images = {
     test: /\.(svg|png|jpe?g|gif)$/,
-    loader: 'file-loader',
-    options: {
-      outputPath: 'assets',
-      publicPath: 'assets',
-      name: '[name].[ext]',
-    },
+    loader: 'url-loader',
   };
 
   const module = {
-    rules: [js, scss, images],
+    rules: [js, scss, html, images],
   };
 
   return {
