@@ -9,8 +9,8 @@ a {
 }
 
 .error {
-  border-color: red !important;
-  background-color: rgba(255, 0, 0, 0.3);
+  border-color: #ffcbcb !important;
+  background-color: lighten($error, 5%);
 }
 
 .tooltip-error {
@@ -19,11 +19,10 @@ a {
   bottom: -15px;
   border: 1px solid $error;
   border-radius: 5px;
-  background-color: $error;
+  background-color: #fff;
   font-size: 0.7em;
   padding: 0.2em 0.5em;
-  color: #fff;
-  z-index: 9999;
+  color: darken($error, 20%);
 
   &::before {
     position: absolute;
@@ -35,9 +34,9 @@ a {
     border: 1px solid $error;
     border-right: none;
     border-bottom: none;
+    border-radius: 2px;
     transform: rotate(45deg);
-    background-color: $error;
+    background-color: #fff;
     content: '';
-    z-index: -1;
   }
 }

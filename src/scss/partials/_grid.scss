@@ -4,7 +4,8 @@
 
 @include mobile {
   .container {
-    max-width: 420px;
+    // max-width: 420px;
+    width: 100%;
   }
 }
 
