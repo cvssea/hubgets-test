@@ -1,0 +1,56 @@
+.container {
+  margin: 0 auto;
+}
+
+@include mobile {
+  .container {
+    max-width: 420px;
+  }
+}
+
+@include tablet {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@include desktop {
+  .container {
+    max-width: 960px;
+  }
+}
+
+.container .row {
+  display: flex;
+  flex-wrap: wrap;
+
+  @for $i from 1 through $grid-cols {
+    .col-#{$i} {
+      width: (100% / $grid-cols) * $i;
+    }
+  }
+
+  @include mobile {
+    @for $i from 1 through $grid-cols {
+      .col-sm-#{$i} {
+        width: (100% / $grid-cols) * $i;
+      }
+    }
+  }
+
+  @include tablet {
+    @for $i from 1 through $grid-cols {
+      .col-md-#{$i} {
+        width: (100% / $grid-cols) * $i;
+      }
+    }
+  }
+
+  @include desktop {
+    @for $i from 1 through $grid-cols {
+      .col-lg-#{$i} {
+        width: (100% / $grid-cols) * $i;
+      }
+    }
+  }
+}

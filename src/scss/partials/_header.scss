@@ -1,0 +1,18 @@
+header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
+  .header-branding {
+    padding: 1em;
+    width: 150px;
+    margin: 0 auto;
+
+    @include tablet {
+      margin: 0;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
